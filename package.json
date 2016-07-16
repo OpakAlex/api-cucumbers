@@ -4,7 +4,7 @@
   "description": "Gherkin Specs for opula Application Stack",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/cucumber.js features"
+    "test": "cucumber.js features --format progress"
   },
   "repository": {
     "type": "git",
