@@ -14,7 +14,18 @@ module.exports = function(){
   });
   this.Then(/^the response status should be "([^"]*)"$/, function (status, done) {
     this.last_response.then((response) => {
-      if (`${response.status}` === status) { done(); }
+      this.expect(`${response.status}`).to.equal(status);
+      done();
+      return response;
     })
+  });
+  this.Then(/^the JSON schema should be:$/, function (schema, done) {
+    this.last_response.then((response) => {
+      response.json().then((json) => {
+        this.expect(json).to.be.jsonSchema(JSON.parse(schema));
+        done();
+        return response;
+      });
+    });
   });
 };
