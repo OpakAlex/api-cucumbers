@@ -4,7 +4,7 @@
   "description": "Gherkin Specs for opula Application Stack",
   "main": "index.js",
   "scripts": {
-    "test": "TODO"
+    "test": "./node_modules/.bin/cucumber.js features"
   },
   "repository": {
     "type": "git",
@@ -28,11 +28,9 @@
     "chai": "^3.5.0",
     "cucumber": "^1.1.0",
     "dotenv": "^2.0.0",
-    "node-fetch": "^1.5.3",
-    "webdriverio": "^4.0.9"
+    "node-fetch": "^1.5.3"
   },
   "dependencies": {
-    "pryjs": "^1.0.2",
-    "selenium-standalone": "^5.4.0"
+    "pryjs": "^1.0.2"
   }
 }

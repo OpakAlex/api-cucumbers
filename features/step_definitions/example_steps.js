@@ -1,15 +1,20 @@
-"use strict";
+'use strict';
+
 
 module.exports = function(){
-  this.When(/^i go to google\.com$/, function (done) {
-    browser
-      .url("http://google.com")
-      .call(done)
+  this.When(/^I send a GET request to "([^"]*)"$/, function (url, done) {
+    this.last_response = this.fetch(url, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    });
+    done();
   });
-
-  this.Then(/^I should see search field$/, function (done) {
-    browser
-      .waitForExist("#hplogo")
-      .call(done);
+  this.Then(/^the response status should be "([^"]*)"$/, function (status, done) {
+    this.last_response.then((response) => {
+      if (`${response.status}` === status) { done(); }
+    })
   });
 };
