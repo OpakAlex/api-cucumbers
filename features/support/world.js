@@ -1,6 +1,7 @@
 'use strict';
 
-let fetch  = require('node-fetch');
+import fetch from "node-fetch";
+// let fetch  = require('node-fetch');
 let chai   = require('chai');
 chai.use(require('chai-json-schema'));
 

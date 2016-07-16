@@ -1,8 +1,8 @@
 'use strict';
 
 
-module.exports = function(){
-  this.When(/^I send a GET request to "([^"]*)"$/, function (url, done) {
+export default function(){
+  this.When(/^I send a GET request to "([^"]*)"$/, function(url, done){
     this.lastRequest = this.fetch(url, {
       method: 'GET',
       headers: {
