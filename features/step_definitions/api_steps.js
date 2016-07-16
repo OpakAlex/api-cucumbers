@@ -3,7 +3,7 @@
 
 module.exports = function(){
   this.When(/^I send a GET request to "([^"]*)"$/, function (url, done) {
-    this.lastResponse = this.fetch(url, {
+    this.lastRequest = this.fetch(url, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -13,13 +13,13 @@ module.exports = function(){
     done();
   });
   this.Then(/^the response status should be "([^"]*)"$/, function (status, done) {
-    this.lastResponse.then((response) => {
+    this.lastRequest.then((response) => {
       this.expect(`${response.status}`).to.equal(status);
       done();
     })
   });
   this.Then(/^the JSON schema should be:$/, function (schema, done) {
-    this.lastResponse.then((response) => {
+    this.lastRequest.then((response) => {
       response.json().then((json) => {
         this.expect(json).to.be.jsonSchema(JSON.parse(schema));
         done();
