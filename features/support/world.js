@@ -1,16 +1,16 @@
 'use strict';
 
-import fetch from "node-fetch";
-// let fetch  = require('node-fetch');
-let chai   = require('chai');
-chai.use(require('chai-json-schema'));
+import fetch from 'node-fetch';
+import chai from 'chai';
+import chaiJsonSchema from 'chai-json-schema';
 
-// Cucumber runs scenarios in a World. By default, the World is just an instance of Object.
-let World = function() {
+chai.use(chaiJsonSchema);
+
+const World = function() {
   this.fetch = fetch;
   this.expect = chai.expect;
 };
 
-module.exports = function() {
+export default function() {
   this.World = World;
 };
