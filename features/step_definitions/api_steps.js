@@ -17,7 +17,7 @@ export default function() {
   })
 
   this.When(/^I send a GET request to "([^"]*)"$/, function(urlOrPath, done){
-    fetchHelper.get(urlOrPath, {}, this)
+    fetchHelper.get(urlOrPath, {/*headers*/}, this)
     done()
   })
 
