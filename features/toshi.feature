@@ -3,8 +3,12 @@ Feature:
   As cucumber tester
   I want to test response
 
+  Background:
+    * I send request to "https://bitcoin.toshi.io/api/v0"
+    * I send and accept JSON
+
   Scenario: Test response status
-    When I send a GET request to "https://bitcoin.toshi.io/api/v0/toshi.json"
+    When I send a GET request to "/toshi.json"
     Then the response status should be "200"
     And the JSON schema should be:
       """

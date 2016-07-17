@@ -1,9 +1,9 @@
 'use strict';
 
 
-export function get(url, headers, world) {
-  world.lastRequestUrl = url
-  world.lastRequestInit['headers'] = headers
+export function get(urlOrPath, headers, world) {
+  world.lastRequestUrl = `${world.lastRequestUrl || ''}${urlOrPath}`
+  world.lastRequestInit['headers'] = Object.assign((world.lastRequestInit.headers || {}), headers)
   world.lastRequest = fetch(world)
 }
 
